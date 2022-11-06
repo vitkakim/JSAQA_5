@@ -23,45 +23,25 @@ Given("user is on page {string}", async function (string) {
   });
 });
 
-When("user choose date", async function () {
-  return await clickElement(this.page, "body nav a:nth-child(4)");
+When("user choose date {int}", async function (number) {
+  return await clickElement(this.page, `body nav a:nth-child(${number})`);
 });
-When("user choose date that has been choosen earlier", async function () {
-    return await clickElement(this.page, "body nav a:nth-child(4)");
-  });
-When("user choose time of a movie", async function () {
-  return await clickElement(this.page, "body main section:nth-child(2) div:nth-child(2) ul li a");
+
+When("user choose time of a movie {int} {int}", async function (one, two) {
+  return await clickElement(this.page, `body main section:nth-child(${one}) div:nth-child(${two}) ul li a`);
 });
-When("user choose time of a movie that has been choosen earlier", async function () {
-    return await clickElement(this.page, "body main section:nth-child(2) div:nth-child(2) ul li a");
-  });
-When("user choose a first sit", async function () {
-  return await clickElement(
-    this.page,
-    ".buying-scheme__wrapper div:nth-child(5) span:nth-child(8)"
-  );
-});
-When("user choose a second sit", async function () {
-  return await clickElement(
-    this.page,
-    ".buying-scheme__wrapper div:nth-child(5) span:nth-child(9)"
-  );
-});
-When("user choose a sit", async function () {
+
+When("user choose a sit {int} {int}", async function (one, two) {
   return await clickElement(
     this.page,
     ".buying-scheme__wrapper div:nth-child(3) span:nth-child(7)"
   );
 });
-When("user choose a sit that has been choosen earlier", async function () {
-  return await clickElement(
-    this.page,
-    ".buying-scheme__wrapper div:nth-child(3) span:nth-child(7)"
-  );
-});
+
 When("user click on the booking button", async function () {
   return await clickElement(this.page, "button.acceptin-button");
 });
+
 When("user click on the button to get booking code", async function () {
   return await clickElement(this.page, "button.acceptin-button");
 });
